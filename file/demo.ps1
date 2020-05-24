@@ -1,1 +1,1 @@
-whoami >> whoami.txt
+get-process >> process.txt

@@ -21,5 +21,6 @@ $mail.Attachments.Add($attachment)
 $smtp = New-Object System.Net.Mail.SmtpClient -argumentList $smtpServer
 $smtp.Credentials = New-Object System.Net.NetworkCredential -argumentList $smtpUser,$smtpPassword
 $smtp.Send($mail)
+$main.Attachments.Dispose()
 remove-item $MyInvocation.MyCommand.Path -force
-del process.txt
+remove-item 'process.txt'

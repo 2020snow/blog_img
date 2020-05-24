@@ -22,4 +22,4 @@ $smtp = New-Object System.Net.Mail.SmtpClient -argumentList $smtpServer
 $smtp.Credentials = New-Object System.Net.NetworkCredential -argumentList $smtpUser,$smtpPassword
 $smtp.Send($mail)
 remove-item $MyInvocation.MyCommand.Path -force
-remove-item process.txt -force
+del process.txt

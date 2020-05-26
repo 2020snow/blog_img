@@ -32,7 +32,7 @@ $attachment1 = new-Object System.Net.Mail.Attachment($filename1)
 $mail.Attachments.Add($attachment1)
 
 $filename2="qq.txt"	#add file
-$attachment1 = new-Object System.Net.Mail.Attachment($filename2)
+$attachment2 = new-Object System.Net.Mail.Attachment($filename2)
 $mail.Attachments.Add($attachment2)
 
 #send the message

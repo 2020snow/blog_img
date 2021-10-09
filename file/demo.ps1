@@ -11,7 +11,7 @@ $data | Foreach-Object{
 
 $smtpServer = "smtp.qq.com"
 $smtpUser = "hk_snow@qq.com"
-$smtpPassword = "vnkaewsoxhjkeafg"
+$smtpPassword = ""
 #create the mail message
 $mail = New-Object System.Net.Mail.MailMessage
 #set the addresses
